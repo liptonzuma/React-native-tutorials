@@ -8,6 +8,9 @@ import {
   Poppins_600SemiBold,
 } from '@expo-google-fonts/poppins';
 
+import { NavigationContainer } from '@react-navigation/native';
+import Stack from './src/navigations/Stack';
+
 export default function App() {
   const [fontsLoaded] = useFonts({
     Poppins_400Regular,
@@ -19,12 +22,9 @@ export default function App() {
     return null;
   }
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>
-        Open up App.tsx to start working on your app!
-      </Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack />
+    </NavigationContainer>
   );
 }
 
