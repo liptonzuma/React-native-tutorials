@@ -2,6 +2,7 @@ import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import TopNav from './TopNav';
 import Components from '../screens/Components';
+import BottomTab from './BottomTab';
 
 const StackNavigator = createNativeStackNavigator();
 export default function Stack() {
@@ -11,14 +12,15 @@ export default function Stack() {
         headerShown: false,
       }}
     >
+      <StackNavigator.Screen name="bottom tab" component={BottomTab} />
       <StackNavigator.Screen
-        name="FAQs"
+        name="FAQs" //accordion
         component={Components}
         options={{
           headerShown: true,
         }}
       />
-      {/* <StackNavigator.Screen name="home" component={TopNav} /> */}
+      <StackNavigator.Screen name="top" component={TopNav} />
     </StackNavigator.Navigator>
   );
 }

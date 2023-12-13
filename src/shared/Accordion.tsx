@@ -1,9 +1,11 @@
 import {
-  Animated,
   StyleSheet,
   Text,
   TouchableWithoutFeedback,
   View,
+  UIManager,
+  Platform,
+  LayoutAnimation,
 } from 'react-native';
 import React, { useState } from 'react';
 import { AntDesign } from '@expo/vector-icons';
@@ -17,33 +19,23 @@ export default function Accordion({
   details: string;
 }) {
   const [opened, setOpened] = useState(false);
-  const [animation] = useState(new Animated.Value(0));
 
-  const numberOfWords = details.split(' ').length;
+  if (
+    Platform.OS === 'android' &&
+    UIManager.setLayoutAnimationEnabledExperimental
+  ) {
+    UIManager.setLayoutAnimationEnabledExperimental(true);
+  }
 
   function toggleAccordion() {
-    if (!opened) {
-      Animated.timing(animation, {
-        toValue: 1,
-        duration: 100,
-        useNativeDriver: false,
-      }).start();
-    } else {
-      Animated.timing(animation, {
-        toValue: 0,
-        duration: 100,
-        useNativeDriver: false,
-      }).start();
-    }
+    LayoutAnimation.configureNext({
+      duration: 300,
+      create: { type: 'easeIn', property: 'opacity' },
+      update: { type: 'linear', springDamping: 0.3, duration: 250 },
+    });
     setOpened(!opened);
   }
 
-  //   This is where we use the to values
-
-  const heightAnimationInterpolation = animation.interpolate({
-    inputRange: [0, 1],
-    outputRange: [0, (numberOfWords / 2.6) * 10], // animate from the first value to the sercond value
-  });
   return (
     <View style={styles.container}>
       <TouchableWithoutFeedback onPress={toggleAccordion}>
@@ -53,11 +45,11 @@ export default function Accordion({
         </View>
       </TouchableWithoutFeedback>
 
-      <Animated.View
-        style={[styles.content, { height: heightAnimationInterpolation }]}
-      >
-        <Text style={styles.details}>{details}</Text>
-      </Animated.View>
+      {opened && (
+        <View style={[styles.content]}>
+          <Text style={styles.details}>{details}</Text>
+        </View>
+      )}
     </View>
   );
 }

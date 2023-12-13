@@ -10,10 +10,12 @@
   },
   "dependencies": {
     "@expo-google-fonts/poppins": "^0.2.3",
+    "@react-navigation/bottom-tabs": "^6.5.11",
     "@react-navigation/material-top-tabs": "^6.6.5",
     "@react-navigation/native": "^6.1.9",
     "@react-navigation/native-stack": "^6.9.17",
     "expo": "~49.0.15",
+    "expo-av": "~13.4.1",
     "expo-constants": "~14.4.2",
     "expo-font": "~11.4.0",
     "expo-status-bar": "~1.6.0",

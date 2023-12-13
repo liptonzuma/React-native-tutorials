@@ -1,7 +1,7 @@
-import { View, Text } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 
-export default function Home() {
+export default function Chats() {
   return (
     <View
       style={{
@@ -10,7 +10,9 @@ export default function Home() {
         alignItems: 'center',
       }}
     >
-      <Text>This is the home screen</Text>
+      <Text>This is the chats screen</Text>
     </View>
   );
 }
+
+const styles = StyleSheet.create({});
