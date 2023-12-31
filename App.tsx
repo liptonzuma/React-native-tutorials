@@ -6,6 +6,7 @@ import {
   Poppins_700Bold,
   Poppins_400Regular,
   Poppins_600SemiBold,
+  Poppins_500Medium,
 } from '@expo-google-fonts/poppins';
 
 import { NavigationContainer } from '@react-navigation/native';
@@ -16,6 +17,7 @@ export default function App() {
     Poppins_400Regular,
     Poppins_600SemiBold,
     Poppins_700Bold,
+    Poppins_500Medium,
   });
 
   if (!fontsLoaded) {

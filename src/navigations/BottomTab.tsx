@@ -1,9 +1,6 @@
 import { View, Text, StyleSheet, Platform } from 'react-native';
 import React from 'react';
-import {
-  createBottomTabNavigator,
-  useBottomTabBarHeight,
-} from '@react-navigation/bottom-tabs';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from '../screens/Home';
 import Chats from '../screens/Chats';
 import Settings from '../screens/Settings';
@@ -38,12 +35,12 @@ export default function BottomTab() {
       }}
     >
       <BottomTabNavigator.Screen
-        name='home'
+        name="home"
         component={Home}
         options={{
           tabBarIcon: ({ focused }) => (
             <AntDesign
-              name='home'
+              name="home"
               size={22}
               color={focused ? '#0071ff' : 'gray'}
             />
@@ -54,22 +51,22 @@ export default function BottomTab() {
         options={{
           tabBarIcon: ({ focused }) => (
             <AntDesign
-              name='message1'
+              name="message1"
               size={21}
               color={focused ? '#0071ff' : 'gray'}
             />
           ),
         }}
-        name='chats'
+        name="chats"
         component={Chats}
       />
       <BottomTabNavigator.Screen
-        name='settings'
+        name="settings"
         component={Settings}
         options={{
           tabBarIcon: ({ focused }) => (
             <AntDesign
-              name='setting'
+              name="setting"
               size={22}
               color={focused ? '#0071ff' : 'gray'}
             />
@@ -77,12 +74,12 @@ export default function BottomTab() {
         }}
       />
       <BottomTabNavigator.Screen
-        name='account'
+        name="account"
         component={Account}
         options={{
           tabBarIcon: ({ focused }) => (
             <AntDesign
-              name='user'
+              name="user"
               size={22}
               color={focused ? '#0071ff' : 'gray'}
             />
